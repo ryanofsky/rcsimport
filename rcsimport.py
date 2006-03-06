@@ -161,7 +161,8 @@ def info_parse(fp):
     log = xml_text(xml_elem(commit, "log"))
     for filenode in xml_elems(commit, "path"):
       file = xml_text(filenode)
-      files[file] = kw(author=author, log=log)
+      files[file] = (author, log)
+  return files
 
 # ===================================================================
 # Recurse Directories
